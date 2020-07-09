@@ -1,5 +1,4 @@
 PuppetLint.new_check(:no_file_path_attribute) do
-
   def check
     resource_indexes.each do |resource|
       next unless resource[:type].value == 'file'
