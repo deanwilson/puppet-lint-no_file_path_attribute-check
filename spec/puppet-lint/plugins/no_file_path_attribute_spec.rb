@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'no_file_path_attribute' do
   let(:msg) { 'file resources should not have a path attribute. Use the title instead' }
 
-  context 'file with a full path title' do
+  context 'when the file resources has a full path title' do
     let(:code) do
       <<-EXAMPLE_CLASS
         class good_namevar {
@@ -19,7 +19,7 @@ describe 'no_file_path_attribute' do
     end
   end
 
-  context 'file with path attribute' do
+  context 'when the file resources has a path attribute' do
     let(:code) do
       <<-EXAMPLE_CLASS
         class path_attribute {
