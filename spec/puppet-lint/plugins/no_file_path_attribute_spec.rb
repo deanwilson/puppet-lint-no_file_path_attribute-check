@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'no_file_path_attribute' do
   let(:msg) { 'file resources should not have a path attribute. Use the title instead' }
 
-  context 'file with a full path title' do
+  context 'when the file resources has a full path title' do
     let(:code) do
       <<-EXAMPLE_CLASS
         class good_namevar {
@@ -14,12 +14,12 @@ describe 'no_file_path_attribute' do
       EXAMPLE_CLASS
     end
 
-    it 'should not detect any problems' do
+    it 'does not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
 
-  context 'file with path attribute' do
+  context 'when the file resources has a path attribute' do
     let(:code) do
       <<-EXAMPLE_CLASS
         class path_attribute {
@@ -30,11 +30,11 @@ describe 'no_file_path_attribute' do
       EXAMPLE_CLASS
     end
 
-    it 'should detect a single problem' do
+    it 'detects a single problem' do
       expect(problems).to have(1).problem
     end
 
-    it 'should create a warning' do
+    it 'creates a warning' do
       expect(problems).to contain_warning(msg).on_line(3).in_column(21)
     end
   end
